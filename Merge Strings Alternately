@@ -1,0 +1,67 @@
+#include <iostream>
+std::string function( std::string word , std::string wordd);
+
+int main() {
+
+ std::string word1 = "ab";
+ std::string word2 = "pqrs";
+
+ std::string result = function(word1,word2);
+ return 0;
+}
+
+std::string function( std::string word , std::string wordd )
+{
+    std::string word3;
+    // Resize word3 to hold enough characters
+    word3.resize(word.length() + wordd.length());
+
+    // Interleave characters from word1 and word2 into word3
+    size_t i = 0; 
+    while (i < word.length() || i < wordd.length()) {
+        if (i < word.length()) {
+            word3.push_back(word[i]);
+        }
+        if (i < wordd.length()) {
+            word3.push_back(wordd[i]);
+        }
+        i++;
+    }
+
+    std::cout << word3 << std::endl;
+
+    return word3;
+}
+
+/*  
+ if (word1.length() > word2.length() || word1.length() == word2.length())
+ {
+  x = word1.length();
+ }
+ else if (word1.length() < word2.length())
+ {
+  x = word2.length();
+ }
+
+  word3.resize(x * 2);
+  
+ while(i<x)
+ {
+   if (word1[i] != ' ')
+   {
+    word3[j]=word1[i];
+   j++;
+   }
+  
+  if (word1[i] != ' ')
+    {
+     word3[j]=word2[i];
+     j++;
+    }
+
+  i++;
+ }
+  std::cout << word3;
+
+}
+*/
